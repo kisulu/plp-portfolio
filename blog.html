@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- ---------Meta & Title Section------------->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benedict Ooko</title>
+
+    <!-- ------------Link to external CSS----------->
+    <link rel="stylesheet" href="index.css" />
+
+    <style>
+      /* ------------Reset and page height------------- */
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ------------Main container centered vertically and horizontally------------- */
+      main {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+
+      /* ------------Cube scene wrapper------------- */
+      .scene {
+        width: fit-content;
+        height: fit-content;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      /* ------------Main cube styling------------- */
+      .cube {
+        position: relative;
+        width: 150px;
+        transform-style: preserve-3d;
+        transform: rotateX(-20deg) rotateY(20deg);
+        animation: rotate 10s infinite linear;
+      }
+
+      /* ------Styling all anchor tags (cube face labels)--------- */
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      /* ------------Common styles for all cube faces------------- */
+      .face {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 16px;
+        transition: transform 0.3s ease, scale 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* ------------Make image fill entire face------------- */
+      .face img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+      }
+
+      /* ------------Hover effect for each cube face------------- */
+      .face:hover {
+        transform: scale(1.05);
+        cursor: pointer;
+      }
+
+      /* ------------Positioning each face of the cube------------- */
+      .front {
+        transform: translateZ(75px);
+      }
+
+      .back {
+        transform: rotateY(180deg) translateZ(75px);
+      }
+
+      .right {
+        transform: rotateY(90deg) translateZ(75px);
+      }
+
+      .left {
+        transform: rotateY(-90deg) translateZ(75px);
+      }
+
+      .top {
+        transform: rotateX(90deg) translateZ(75px);
+      }
+
+      .bottom {
+        transform: rotateX(-90deg) translateZ(75px);
+      }
+
+      /* ------------Rotation animation for cube------------- */
+      @keyframes rotate {
+        0% {
+          transform: rotateX(0deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(360deg) rotateY(360deg);
+        }
+      }
+
+      /* ------------Annotation that appears next to the cube------------- */
+      .annotation {
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 120px);
+        transform: translateY(-50%);
+        color: #fff;
+        font-style: italic;
+        line-height: 1.5;
+        max-width: 300px;
+        padding-left: 20px;
+      }
+
+      /* ------------Annotation's horizontal line------------- */
+      .annotation::before {
+        content: "";
+        position: absolute;
+        left: -60px;
+        top: 10px;
+        width: 40px;
+        height: 1px;
+        background: #fff;
+      }
+
+      /* ------------Annotation's vertical line------------- */
+      .annotation::after {
+        content: "";
+        position: absolute;
+        left: -60px;
+        top: 10px;
+        width: 1px;
+        height: 20px;
+        background: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ------------Main Content Section------------- -->
+    <main>
+      <!-- ------------Cube Display Scene------------- -->
+      <div class="scene">
+        <div class="cube" id="cube">
+          <!-- ------------Front Face------------- -->
+          <div class="face front">
+            <img src="/images/work-1.jpg" alt="About Me" />
+            <a href="about-me.html">About Me</a>
+          </div>
+
+          <!-- ------------Back Face------------- -->
+          <div class="face back">
+            <img src="/images/Profile.jpg" alt="Projects" />
+            <a href="#">Projects</a>
+          </div>
+
+          <!-- ------------Right Face--------------->
+          <div class="face right">
+            <img src="/images/work-2.jpg" alt="Skills" />
+            <a href="index.html">Skills</a>
+          </div>
+
+          <!-- ------------Left Face--------------->
+          <div class="face left">
+            <img src="/images/work-3.jpg" alt="Contact" />
+            <a href="index.html">Contact</a>
+          </div>
+
+          <!-- ------------Top Face--------------->
+          <div class="face top">
+            <img src="/images/work-4.jpg" alt="Experience" />
+            <a href="index.html">Education</a>
+          </div>
+
+          <!-- ------------Bottom Face--------------->
+          <div class="face bottom">
+            <img src="/images/profile.jpeg" alt="Blog" />
+            <a href="#">Blog</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
